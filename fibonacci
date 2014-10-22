@@ -1,0 +1,59 @@
+import UIKit
+
+
+class FibonacciSequence {
+    
+    let includesZero: Bool
+    var values: [Int] = []
+    
+    init(maxNumber: Int, includesZero: Bool) {
+        self.includesZero = includesZero
+        if maxNumber == 0 && includesZero == false {
+            values = []
+        } else if maxNumber == 0 {
+            values = [0]
+        } else {
+            var sequence = [0,1,1]
+            var nextNumber = 2
+            while nextNumber <= maxNumber
+            {
+                sequence.append(nextNumber)
+                let lastNumber = sequence.last!
+                let secondToLastNumber = sequence[sequence.count-2]
+                nextNumber = secondToLastNumber + lastNumber
+            }
+            if includesZero == false {
+                sequence.removeAtIndex(0)
+            }
+            values = sequence
+       
+    }
+        
+        
+        //TODO: Create an array which contains the numbers in the Fibonacci sequence, but don't add any numbers to the array which exceed the maxNumber. For example, if the maxNumber is 10 then the array should contain [0,1,1,2,3,5,8] because the next number is 13 which is higher than the maxNumber. If includesZero is false then you should not include the number 0 in the sequence.
+    }
+    
+    init(numberOfItemsInSequence: Int, includesZero: Bool) {
+        self.includesZero = includesZero
+        for var counter = 0; counter < numberOfItemsInSequence; ++counter
+        {
+        
+            if counter == 0
+            {
+                values.append(0)
+            } else if includesZero == false && counter == 0 {
+                values.append(1)
+            } else if counter == 1 {
+                values.append(1)
+            } else if counter <= numberOfItemsInSequence && counter >= 2 {
+            values.append(values[counter - 1] + values[counter - 2])
+            }
+        }
+        
+        //TODO: Create an array which contains the numbers in the Fibonacci sequence, and the array should contain this many items: numberOfItemsInSequence. For example, if numberOfItemsInSequence is 10 then the array should contain [0,1,1,2,3,5,8,13,21,34] if inlcudesZero is true, or [1,1,2,3,5,8,13,21,34,55] if includesZero is false.
+    }
+
+
+let fibanocciSequence = FibonacciSequence(maxNumber:123, includesZero: true)
+
+let anotherSequence = FibonacciSequence(numberOfItemsInSequence: 13, includesZero: true)
