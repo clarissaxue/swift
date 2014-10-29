@@ -1,0 +1,72 @@
+import UIKit
+
+var str = "Hello, playground"
+
+class Dog
+{
+    let name: String
+    let color: UIColor
+    
+    init(name: String, color: UIColor)
+    {
+        self.name = name
+        self.color = color
+    }
+    
+    func speak()
+    {
+        println("Woof!")
+    }
+    
+    func sit()
+    {
+        println("I'm \(name) and I'm sitting!")
+    }
+    
+    class func genus() -> String
+    {
+        return "Canis"
+    }
+}
+
+let white = UIColor.whiteColor()
+let diamond = Dog(name: "Diamond", color: white)
+diamond.speak()
+diamond.sit()
+
+let brown = UIColor.brownColor()
+let corona = Dog(name: "Corona", color: brown)
+corona.speak()
+corona.sit()
+
+let genusOfDog = Dog.genus()
+println("All dogs belong to the \(genusOfDog) genus.")
+
+genusOfDog
+
+class Pen
+{
+    let color: UIColor
+    let type: String
+    
+    init(color: UIColor, type: String)
+    {
+        self.color = color
+        self.type = type
+    }
+    
+    func write()
+    {
+        println("I'm writing with my cool \(type) pen!")
+    }
+    
+    func replace()
+    {
+        println("Oh no, I am nearing the end of my life. You have used me well...Farewell!")
+    }
+}
+
+let black = UIColor.blackColor()
+let ballpoint = Pen(color: black, type: "ballpoint")
+ballpoint.write()
+ballpoint.replace()
